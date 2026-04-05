@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 180 10% 97%;
+    --foreground: 200 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 10%;
+
+    --primary: 168 80% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 15% 94%;
+    --secondary-foreground: 200 25% 10%;
+
+    --muted: 200 10% 94%;
+    --muted-foreground: 200 10% 46%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 15% 90%;
+    --input: 200 15% 90%;
+    --ring: 168 80% 36%;
+
+    --radius: 0.75rem;
+
+    --income: 152 69% 40%;
+    --income-foreground: 0 0% 100%;
+    --expense: 0 72% 51%;
+    --expense-foreground: 0 0% 100%;
+    --savings: 217 91% 60%;
+    --savings-foreground: 0 0% 100%;
+
+    --glass: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-shadow: 200 25% 10% / 0.08;
+
+    --category-food: 25 95% 53%;
+    --category-travel: 217 91% 60%;
+    --category-shopping: 280 67% 60%;
+    --category-bills: 0 72% 51%;
+    --category-entertainment: 340 82% 52%;
+    --category-health: 152 69% 40%;
+    --category-education: 200 98% 39%;
+    --category-salary: 168 80% 36%;
+    --category-other: 200 10% 46%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 200 25% 10%;
+    --sidebar-primary: 168 80% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 80% 96%;
+    --sidebar-accent-foreground: 168 80% 26%;
+    --sidebar-border: 200 15% 92%;
+    --sidebar-ring: 168 80% 36%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 200 15% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 200 15% 92%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 200 15% 92%;
+
+    --primary: 168 72% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 200 15% 92%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 200 10% 55%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 168 72% 44%;
+
+    --income: 152 60% 45%;
+    --income-foreground: 0 0% 100%;
+    --expense: 0 62% 50%;
+    --expense-foreground: 0 0% 100%;
+    --savings: 217 85% 55%;
+    --savings-foreground: 0 0% 100%;
+
+    --glass: 220 20% 14% / 0.8;
+    --glass-border: 220 20% 24% / 0.5;
+    --glass-shadow: 0 0% 0% / 0.3;
+
+    --category-food: 25 90% 55%;
+    --category-travel: 217 85% 62%;
+    --category-shopping: 280 60% 62%;
+    --category-bills: 0 62% 55%;
+    --category-entertainment: 340 75% 55%;
+    --category-health: 152 60% 45%;
+    --category-education: 200 90% 45%;
+    --category-salary: 168 72% 44%;
+    --category-other: 200 10% 55%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 200 15% 92%;
+    --sidebar-primary: 168 72% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 50% 15%;
+    --sidebar-accent-foreground: 168 60% 70%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 168 72% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-xl border backdrop-blur-xl;
+    background: hsl(var(--glass));
+    border-color: hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow));
+  }
+
+  .stat-card {
+    @apply glass-card p-5 transition-all duration-300;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px hsl(var(--glass-shadow));
+  }
+
+  .category-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--savings)));
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+}
